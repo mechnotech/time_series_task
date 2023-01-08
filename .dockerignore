@@ -170,3 +170,8 @@ cython_debug/
 #.idea/
 
 notebooks/
+Dockerfile
+docker-compose.yaml
+Readme.md
+.gitignore
+.dockerignore
