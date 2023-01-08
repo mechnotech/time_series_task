@@ -6,15 +6,7 @@ from dash import Input, Output
 
 from app_layouts.layouts import make_layout
 from helpers import isolation_forest, get_prepared_data, hist_detection
-from settings import config
-
-external_stylesheets = [
-    {
-        "href": "https://fonts.googleapis.com/css2?"
-        "family=Lato:wght@400;700&display=swap",
-        "rel": "stylesheet",
-    },
-]
+from settings import config, external_stylesheets
 
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 np.random.seed(config.random_state)
@@ -59,4 +51,4 @@ def display_time_series(ip_network: str, cont_factor: float, model: str):
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=config.app_port)
+    app.run_server(host='0.0.0.0', port=config.app_port, debug=True)

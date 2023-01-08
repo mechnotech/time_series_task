@@ -5,6 +5,6 @@ services:
   anomaly_app:
     build: .
     container_name: anomaly_app
-    entrypoint: ["python3", "pywsgi.py"]
+    entrypoint: ["python3", "app.py"]
     ports:
       - "8000:8050"
