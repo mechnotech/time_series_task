@@ -35,8 +35,10 @@ def isolation_forest(data: pd.DataFrame, coll: str, cont: float = 0.01) -> np.ar
 
 def hist_detection(data: pd.DataFrame, coll: str, cont: float = 0.01) -> np.array:
     detector = HBOS(contamination=cont)
-    data = scale_ip_data(data[coll])
-    detector.fit(data)
-    pred = detector.predict(data)
+    scaler = StandardScaler(with_mean=True)
+    np_scaled = scaler.fit_transform(data)
+    np_scaled = pd.DataFrame(np_scaled)
+    detector.fit(np_scaled)
+    pred = detector.predict(np_scaled)
     return pred
 

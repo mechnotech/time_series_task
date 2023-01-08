@@ -51,4 +51,4 @@ def display_time_series(ip_network: str, cont_factor: float, model: str):
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=config.app_port, debug=True)
+    app.run_server(host='0.0.0.0', port=config.app_port, debug=False)
