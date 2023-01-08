@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
-from settings import RANDOM_STATE
+from settings import config
 
 
 def get_prepared_data() -> pd.DataFrame:
@@ -27,6 +27,6 @@ def scale_ip_data(data: pd.Series) -> pd.DataFrame:
 
 def isolation_forest(data: pd.DataFrame, coll: str, cont: float = 0.01) -> np.array:
     data = scale_ip_data(data[coll])
-    model = IsolationForest(contamination=cont, random_state=RANDOM_STATE)
+    model = IsolationForest(contamination=cont, random_state=config.random_state)
     model.fit(data)
     return model.predict(data)

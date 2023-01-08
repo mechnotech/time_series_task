@@ -3,10 +3,11 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from helpers import get_prepared_data, isolation_forest
-from settings import RANDOM_STATE
+from settings import config
 
 app = Dash(__name__)
-np.random.seed(RANDOM_STATE)
+server = app.server
+np.random.seed(config.random_state)
 df = get_prepared_data()
 visible_columns = df.columns.copy()
 
@@ -57,4 +58,4 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True, dev_tools_ui=True)
+    app.run_server(host='0.0.0.0', port=config.app_port)
