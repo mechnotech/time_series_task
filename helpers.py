@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
+from pyod.models.hbos import HBOS
 
 from settings import config
 
@@ -30,3 +31,12 @@ def isolation_forest(data: pd.DataFrame, coll: str, cont: float = 0.01) -> np.ar
     model = IsolationForest(contamination=cont, random_state=config.random_state)
     model.fit(data)
     return model.predict(data)
+
+
+def hist_detection(data: pd.DataFrame, coll: str, cont: float = 0.01) -> np.array:
+    detector = HBOS(contamination=cont)
+    data = scale_ip_data(data[coll])
+    detector.fit(data)
+    pred = detector.predict(data)
+    return pred
+

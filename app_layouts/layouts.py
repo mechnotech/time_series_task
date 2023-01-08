@@ -14,7 +14,14 @@ def make_layout(layout_context):
             clearable=True,
             searchable=True,
         ),
-        html.P("Фактор контаминации (0.01 - 0.08)"),
+        html.P("Модель"),
+        dcc.Dropdown(
+            id="model",
+            options=['HBOS', 'Isolation Forest'],
+            value='HBOS',
+            clearable=False
+        ),
+        html.P("Фактор контаминации"),
         dcc.Slider(
             id="cont_factor",
             min=0.01,
