@@ -51,4 +51,4 @@ docker-compose up --build -d
 
 Приложение будет доступно по адресу:
 
-`http://localhost:8050`
+http://localhost:8050
