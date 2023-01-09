@@ -4,6 +4,8 @@
 
 Клонировать репозиторий и перейти в директорию проекта:
 
+в командной строке (CMD Windows)
+
 ```BASH
 git clone https://github.com/mechnotech/time_series_task.git
 cd time_series_task/
@@ -13,7 +15,16 @@ cd time_series_task/
 
 ```BASH
 python3 -m venv venv
+```
+
+В Linux:
+```BASH
 source venv/bin/activate
+```
+
+В Windows:
+```PowerShell
+activate
 ```
 
 Установить зависимости:
