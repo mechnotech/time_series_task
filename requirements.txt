@@ -4,3 +4,4 @@ pandas==1.5.2
 statsmodels==0.13.5
 pyod~=1.0.7
 pydantic==1.10.4
+numpy==1.23.5
